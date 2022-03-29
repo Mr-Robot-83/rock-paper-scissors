@@ -66,3 +66,20 @@ playPaper.addEventListener('click', () => {
 playScissors.addEventListener('click', () => {
   playRound("scissors",computerPlay());}
 )
+
+function game () {
+  for (let i = 0; i < 5; i++) {
+    playRock.addEventListener('click', () => {
+      playRound("rock",computerPlay());}
+    )
+    
+    playPaper.addEventListener('click', () => {
+      playRound("paper",computerPlay());}
+    )
+    
+    playScissors.addEventListener('click', () => {
+      playRound("scissors",computerPlay());}
+    )
+ }
+}
+
