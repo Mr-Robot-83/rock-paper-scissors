@@ -4,11 +4,7 @@ body {
   background-color: #282a36;
   font-family: 'Roboto Mono', monospace;
   padding: 20px;
-  display: flex;
-  justify-content: center;
   margin: 0;
-  width: 100vw;
-  box-sizing: border-box;
 }
 
 h1 {
@@ -25,10 +21,10 @@ h1 {
 }
 
 .content {
+  margin: 0 auto;
   max-width: 480px;
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
 
 .options {

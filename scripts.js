@@ -28,7 +28,9 @@ const computerInsults = [
   "cock head.",
   "ok your dumb fucking dog ass cunt.",
   "you fucking shit cunt.",
-  "dick hole",
+  "dick hole.",
+  "piss mouth.",
+  "you steaming bag of shit covered ball sacks.",
   "you stupid fucking cunting prick.",
   "you fucking brainless cunt."
 ];
