@@ -22,9 +22,10 @@ h1 {
 }
 
 .content {
-  width: 480px;
+  max-width: 480px;
   display: flex;
   flex-direction: column;
+  width: 100vw;
 }
 
 .options {
