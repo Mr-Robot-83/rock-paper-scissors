@@ -8,7 +8,7 @@ const computerWinMessages = [
   "I win you stupid fuck 💩",
   "🖕 I win. Eat shit. 💩",
   "You loose cock head 8===D~~~",
-  "🍆 🍆  You lose dick hole. Go fuck yourself for fuck's sake. 🍆 🍆",
+  "🍆 🍆  You lose dick hole. Now for fuck's sake please go fuck yourself ok? 🍆 🍆",
   "You lose shit for brains 💩 🧠 💩 🧠 💩",
   "🖕🖕🖕 I win, get fucked.🖕🖕🖕",
   "I win, fuck off.🖕 💩 🖕 💩 "
@@ -26,7 +26,7 @@ const computerInsults = [
   "you mother fucking cock cunt.",
   "fuck nuts.",
   "cock head.",
-  "you dumb fucking ass cunt.",
+  "ok your dumb fucking dog ass cunt.",
   "you fucking shit cunt.",
   "dick hole",
   "you stupid fucking cunting prick.",
