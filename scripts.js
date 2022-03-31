@@ -6,13 +6,14 @@ const computerInsultOptions = [
   "💩💩 Game over, I win dick head! 💩💩",
   "I win you stupid fuck 💩",
   "I win. Eat shit. 💩",
-  "🍆🍆🍆 You lose dick hole. 🍆🍆🍆",
+  "You loose cock head 8===D~~~",
+  "🍆 🍆  You lose dick hole. 🍆 🍆",
   "You lose shit for brains 💩 🧠 💩 🧠 💩",
   "I win, get fucked."
 ];
 
 
-//Set round number and scores.
+//Set round number and scores. -1 is there to trigger a reset (pre-round).
 let computerScore = 0;
 let playerScore = 0;
 let roundNumber = -1;
@@ -29,6 +30,7 @@ function computerInsult () {
   return computerInsultOptions[computerChoice];
 };
 
+//Game logic. Takes in player and computer selection, prints results and updates scores.
 function playRound(playerSelection, computerSelection) {
   let play = playerSelection.toLowerCase();
   const playedMessage = `You played ${playerSelection} and I played ${computerSelection}.`;
@@ -82,12 +84,12 @@ function playerSelects (choice) {
   }
 };
 
-
 function gameOver () {
   let result;
   if (playerScore > computerScore) {
     result = "Game over, you win. Fuck off.";
   } else {
+    //Select an insult at random from the array of insults!
     result = computerInsult();
   }
   messageBox.innerHTML = '<span style="color:#50fa7b;">' + result + '</span>' + "<br>" +
@@ -97,7 +99,6 @@ function gameOver () {
   roundNumber = -1;
 };
 
-//UI
 function displayText (message) {
   messageBox.innerHTML = message  + "<br>" +  messageBox.innerHTML;
 };
