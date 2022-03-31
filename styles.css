@@ -28,10 +28,17 @@ body {
 .options {
   flex: 1;
   display: flex;
-  justify-content: center;
   gap: 10px;
 }
 
-.options button {
+.options div {
   flex: 1;
+  background-color: #f8f8f2;
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.options div:active {
+  background-color: #d4d4ba;
 }
