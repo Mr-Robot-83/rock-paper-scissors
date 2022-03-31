@@ -5,6 +5,7 @@ body {
   font-family: 'Roboto Mono', monospace;
   padding: 20px;
   margin: 0;
+  width: 100vw;
 }
 
 h1 {
@@ -21,6 +22,7 @@ h1 {
 }
 
 .content {
+  width: 100%;
   margin: 0 auto;
   max-width: 480px;
   display: flex;

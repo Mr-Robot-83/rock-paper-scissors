@@ -3,7 +3,7 @@ const messageBox = document.getElementById("comp-message");
 
 const computerOptions = ["rock", "paper", "scissors"];
 const computerWinMessages = [ 
-  "I win fuck face. Seriously go fuck off now you pathetic fucking shit for brains fuck.💩 💩 💩 💩 💩", 
+  "I win fuck face. Why don't you go try to eat a pile of steaming horse shit. 💩 💩 💩 💩 💩", 
   "💩 💩 Game over, I win dick head! 💩 💩",
   "I win you stupid fuck 💩",
   "🖕 I win. Eat shit. 💩",
@@ -17,8 +17,8 @@ const computerWinMessages = [
 const computerInsults = [ 
   "... fuckadoodle doo.", 
   "you ugly fucking pile of mouth breathing pig piss.", 
-  "you barely concious cunt faced fucking turd fuck.", 
-  "so how about you go get fucked you fucking cock faced fuck nut prick fuck.",
+  "you barely concious cunt faced turd fuck.", 
+  "so how about you go get fucked you fucking cock faced, fuck nut, prick fuck.",
   "you stupid fucking dumb fuck.", 
   "you dumb fuck.", 
   "fuck head.",
@@ -26,7 +26,7 @@ const computerInsults = [
   "you mother fucking cock cunt.",
   "fuck nuts.",
   "cock head.",
-  "ok your dumb fucking dog ass cunt.",
+  "you dumb fucking dog ass cunt.",
   "you fucking shit cunt.",
   "dick hole.",
   "piss mouth.",
@@ -113,7 +113,7 @@ function gameOver () {
     result = computerRandomChoice(computerWinMessages);
   }
   messageBox.innerHTML = '<span style="color:#50fa7b;">' + result + '</span>' + "<br>" +
-                '<span style="color:#ff79c6;">Click to start again...</span>' + "<br><br>" + messageBox.innerHTML;
+                '<span style="color:#ff79c6;">Click 🖕 to start again...</span>' + "<br><br>" + messageBox.innerHTML;
   computerScore = 0;
   playerScore = 0;
   roundNumber = -1;
