@@ -16,6 +16,9 @@ const computerWinMessages = [
 
 const computerInsults = [ 
   "fuckadoodle doo.", 
+  "you ugly fucking pile of piss.", 
+  "you cunt faced turd fuck.", 
+  "- go get fucked.",
   "you stupid fucking dumb fuck.", 
   "you dumb fuck.", 
   "fuck head.",
@@ -62,7 +65,7 @@ function playRound(playerSelection, computerSelection) {
     roundNumber++;
     messageBox.innerHTML = "<br>" + messageBox.innerHTML;
     displayText(`Your score is ${playerScore}. My score is ${computerScore}.`)  ;
-    displayText("🤬 You win "+computerRandomChoice(computerInsults));
+    displayText("🤬 You win round "+roundNumber+" "+computerRandomChoice(computerInsults));
     displayText(playedMessage);
     displayRound(roundNumber);
   } else {
@@ -70,7 +73,7 @@ function playRound(playerSelection, computerSelection) {
     roundNumber++;
     messageBox.innerHTML = "<br>" + messageBox.innerHTML;
     displayText(`Your score is ${playerScore}. My score is ${computerScore}.`);
-    displayText("🤣 You lose "+computerRandomChoice(computerInsults));
+    displayText("🤣 You lose round "+roundNumber+" "+computerRandomChoice(computerInsults));
     displayText(playedMessage);
     displayRound(roundNumber);
   }
