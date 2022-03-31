@@ -1,7 +1,8 @@
 //List choices for the computer.
-const computerOptions = ["rock", "paper", "scissors"];
 const messageBox = document.getElementById("comp-message");
-const computerInsultOptions = [ 
+
+const computerOptions = ["rock", "paper", "scissors"];
+const computerWinMessages = [ 
   "I win fuck face. Eat a dick.💩 💩 💩 💩 💩", 
   "💩💩 Game over, I win dick head! 💩💩",
   "I win you stupid fuck 💩",
@@ -13,22 +14,32 @@ const computerInsultOptions = [
   "I win, fuck off.🖕 💩 🖕 💩 "
 ];
 
+const computerInsults = [ 
+  "fuckadoodle doo.", 
+  "you stupid fucking dumb fuck.", 
+  "you dumb fuck.", 
+  "fuck head.",
+  "shit for brains.",
+  "you mother fucking cock cunt.",
+  "fuck nuts.",
+  "cock head.",
+  "you dumb fucking ass cunt.",
+  "you fucking shit cunt.",
+  "dick hole",
+  "you stupid fucking cunting prick.",
+  "you fucking brainless cunt."
+];
 
 //Set round number and scores. -1 is there to trigger a reset (pre-round).
 let computerScore = 0;
 let playerScore = 0;
 let roundNumber = -1;
 
-//Ask the computer to make a selection at random from the given coices.
-function computerPlay () {
-  let computerChoice = Math.floor(Math.random() * computerOptions.length);
-  return computerOptions[computerChoice];
-};
 
-//Ask the computer to choose an insult at random from the given coices.
-function computerInsult () {
-  let computerChoice = Math.floor(Math.random() * computerInsultOptions.length);
-  return computerInsultOptions[computerChoice];
+//Ask the computer to make a selection at random from the given coices.
+function computerRandomChoice (array) {
+  let computerChoice = Math.floor(Math.random() * array.length);
+  return array[computerChoice];
 };
 
 //Game logic. Takes in player and computer selection, prints results and updates scores.
@@ -39,7 +50,7 @@ function playRound(playerSelection, computerSelection) {
     roundNumber++;
     messageBox.innerHTML = "<br>" + messageBox.innerHTML;
     displayText(`Your score is ${playerScore}. My score is ${computerScore}.`);
-    displayText("It's a draw.");
+    displayText("💩 It's a draw "+computerRandomChoice(computerInsults));
     displayText(playedMessage);
     displayRound(roundNumber);
   } else if (
@@ -51,7 +62,7 @@ function playRound(playerSelection, computerSelection) {
     roundNumber++;
     messageBox.innerHTML = "<br>" + messageBox.innerHTML;
     displayText(`Your score is ${playerScore}. My score is ${computerScore}.`)  ;
-    displayText("You win! 🤬");
+    displayText("🤬 You win "+computerRandomChoice(computerInsults));
     displayText(playedMessage);
     displayRound(roundNumber);
   } else {
@@ -59,7 +70,7 @@ function playRound(playerSelection, computerSelection) {
     roundNumber++;
     messageBox.innerHTML = "<br>" + messageBox.innerHTML;
     displayText(`Your score is ${playerScore}. My score is ${computerScore}.`);
-    displayText("You lose! 🤣`");
+    displayText("🤣 You lose "+computerRandomChoice(computerInsults));
     displayText(playedMessage);
     displayRound(roundNumber);
   }
@@ -75,10 +86,13 @@ playScissors.addEventListener('click', () => playerSelects("scissors"));
 
 function playerSelects (choice) {
   if (computerScore === 0 && playerScore === 0 && roundNumber === -1) {
-    messageBox.innerHTML = "<span style='color:#50fa7b;'>First to 3, let's go.</span>";
+    messageBox.innerHTML = "<span style='color:#50fa7b;'>Ok fuck face. First to 3, let's go.</span>";
+    playRock.innerHTML = "👊";
+    playPaper.innerHTML = "✋";
+    playScissors.innerHTML = "✌️";
     roundNumber++
   } else {
-    playRound(choice,computerPlay());
+    playRound(choice,computerRandomChoice(computerOptions));
     if (computerScore === 3 || playerScore === 3) {
       gameOver () 
     }
@@ -91,13 +105,16 @@ function gameOver () {
     result = "Game over, you win. Fuck off.";
   } else {
     //Select an insult at random from the array of insults!
-    result = computerInsult();
+    result = computerRandomChoice(computerWinMessages);
   }
   messageBox.innerHTML = '<span style="color:#50fa7b;">' + result + '</span>' + "<br>" +
                 '<span style="color:#ff79c6;">Click to start again...</span>' + "<br><br>" + messageBox.innerHTML;
   computerScore = 0;
   playerScore = 0;
   roundNumber = -1;
+  playRock.innerHTML = "🖕";
+  playPaper.innerHTML = "🖕";
+  playScissors.innerHTML = "🖕";
 };
 
 function displayText (message) {
