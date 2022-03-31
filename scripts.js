@@ -2,14 +2,15 @@
 const computerOptions = ["rock", "paper", "scissors"];
 const messageBox = document.getElementById("comp-message");
 const computerInsultOptions = [ 
-  "I win fuck face. Eat a dick.💩💩💩💩💩💩💩💩", 
+  "I win fuck face. Eat a dick.💩 💩 💩 💩 💩", 
   "💩💩 Game over, I win dick head! 💩💩",
   "I win you stupid fuck 💩",
-  "I win. Eat shit. 💩",
+  "🖕 I win. Eat shit. 💩",
   "You loose cock head 8===D~~~",
   "🍆 🍆  You lose dick hole. 🍆 🍆",
   "You lose shit for brains 💩 🧠 💩 🧠 💩",
-  "I win, get fucked."
+  "🖕🖕🖕 I win, get fucked.🖕🖕🖕",
+  "I win, fuck off.🖕 💩 🖕 💩 "
 ];
 
 
