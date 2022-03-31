@@ -91,7 +91,7 @@ playScissors.addEventListener('click', () => playerSelects("scissors"));
 
 function playerSelects (choice) {
   if (computerScore === 0 && playerScore === 0 && roundNumber === -1) {
-    messageBox.innerHTML = "<span style='color:#50fa7b;'>Ok fuck face. First to 3, let's go.</span>";
+    messageBox.innerHTML = "<span style='color:#50fa7b;'>Ok "+computerRandomChoice(computerInsults)+" First to 3, let's go.</span>";
     playRock.innerHTML = "👊";
     playPaper.innerHTML = "✋";
     playScissors.innerHTML = "✌️";
