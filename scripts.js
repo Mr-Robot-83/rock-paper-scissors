@@ -3,8 +3,8 @@ const messageBox = document.getElementById("comp-message");
 
 const computerOptions = ["rock", "paper", "scissors"];
 const computerWinMessages = [ 
-  "I win fuck face. Eat a dick.💩 💩 💩 💩 💩", 
-  "💩💩 Game over, I win dick head! 💩💩",
+  "I win fuck face. Seriously go fuck off now you pathetic fucking shit for brains fuck.💩 💩 💩 💩 💩", 
+  "💩 💩 Game over, I win dick head! 💩 💩",
   "I win you stupid fuck 💩",
   "🖕 I win. Eat shit. 💩",
   "You loose cock head 8===D~~~",
@@ -15,10 +15,10 @@ const computerWinMessages = [
 ];
 
 const computerInsults = [ 
-  "fuckadoodle doo.", 
+  "... fuckadoodle doo.", 
   "you ugly fucking pile of mouth breathing pig piss.", 
-  "you barely concious cunt faced turd fuck.", 
-  "- go get fucked you fucking cock balled cock mouth prick.",
+  "you barely concious cunt faced fucking turd fuck.", 
+  "so how about you go get fucked you fucking cock faced fuck nut prick fuck.",
   "you stupid fucking dumb fuck.", 
   "you dumb fuck.", 
   "fuck head.",

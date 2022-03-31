@@ -6,6 +6,7 @@ body {
   padding: 20px;
   display: flex;
   justify-content: center;
+  margin: 0;
 }
 
 h1 {
@@ -22,10 +23,9 @@ h1 {
 }
 
 .content {
-  max-width: 480px;
+  width: 480px;
   display: flex;
   flex-direction: column;
-  width: 100vw;
 }
 
 .options {
