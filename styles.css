@@ -23,11 +23,6 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
-  transition: all 1s;
-}
-
-.content.pre-animation {
-  opacity:0;
 }
 
 .options {

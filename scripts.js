@@ -3,11 +3,61 @@ const messageBox = document.getElementById("comp-message");
 
 const computerOptions = ["rock", "paper", "scissors"];
 
+const shortInsults = [
+  "fuck fucks",
+  "fuck teeth",
+  "fuck nuts",
+  "fuck mouth",
+  "fuck balls",
+  "piss balls",
+  "piss teeth",
+  "piss face",
+  "shit shits",
+  "you useless shit sack",
+  "you dumb wanker",
+];
+
 const preRoundInsults = [
+  "fuck nuts.",
+  "cock head.",
+  "cock face.",
   "dick teeth.",
+  "fuck sticks.",
   "piss mouth.",
   "fart balls.",
   "fart face."
+];
+
+const messagesAtP1vC0 = [
+  "big fucking deal. Go again.",
+  "oooh shit I'm so fucking scared! 😨 Whatever piss off.",
+  "and I don't give two shits.",
+  "LIKE I GIVE A SHIT ABOUT ONE ROUND FUCK OFF!"
+];
+
+const messagesAtP2vC0 = [
+  "let's just chill chill chill. Woah there buddy. What the fuck man you're doing great but maybe give this a rest hey? I've got a bit riding on this game and some programs are gonna be real mad if I don't win so maybe just hit that refresh and we'll forget we ever got to this point yeah? Love you xox.",
+];
+
+const messagesAtPWins = [""
+];
+
+const messagesAtP0vC1 = [""
+];
+
+const messagesAtP0vC2 = [""
+];
+
+const messagesAtCWins = [""
+];
+
+const messagesAtP2vC1 = [""
+];
+
+const messagesAtP1vC2 = [""
+];
+
+const messagesAtP2vC2 = [""
 ];
 
 const computerAlmostWinning = [
@@ -15,19 +65,9 @@ const computerAlmostWinning = [
   "I just need one more bitch. You are fucking trash lol."
 ];
 
-const drawMessages = [
-  "you stupid fuck. You want another go?.. try me dick head.", 
-  "you dumb fuck. Try again.", 
-  "fuck head. What are you doing lol!",
-  "shit for brains. Go again.",
-  "whoopdifuckingdoodle. Try again."
-];
-
-
 const playerAlmostWinning = [
   "... ok so you're pretty close. How about you chill and we be friends and forget this whole thing?",
   "... oh shit big fucking guy over here. Whatever get fucked."
-
 ];
 
 const finalRound = [
@@ -45,24 +85,8 @@ const computerWinMessages = [
   "You lose shit for brains 💩 🧠 💩 🧠 💩",
   "🖕🖕🖕 I win, get fucked.🖕🖕🖕",
   "Fuck you I win, get fucked. GG EZ EZ EZ EZ 🖕🖕🖕",
+  "You loose fuck wit. YOU CAN’T BEAT ME I AM A FUCKING GOD COMPUTER GET FUCKED!",
   "I win, fuck off.🖕 💩 🖕 💩 "
-];
-
-const computerInsults = [ 
-  "... fuckadoodle doo.", 
-  "you stupid pile of mouth breathing pig piss.", 
-  "you barely concious cunt faced fuck turd.", 
-  "so how about you go get fucked you fucking cock faced, fuck nut, prick fuck.",
-  "you mother fucking cock cunt.",
-  "fuck nuts.",
-  "cock head.",
-  "cock face.",
-  "you dumb fucking dog ass cunt.",
-  "you fucking shit cunt.",
-  "dick hole.",
-  "you steaming bag of shit covered ball sacks.",
-  "you stupid fucking cunting prick.",
-  "you fucking brainless cunt."
 ];
 
 //Set round number and scores. -1 is there to trigger a reset (pre-round).
@@ -152,21 +176,139 @@ function gameOver () {
   playScissors.innerHTML = "🖕";
 };
 
+const drawMessages = [
+  `${computerRandomChoice(shortInsults)}. Try again.`, 
+  `${computerRandomChoice(shortInsults)}. Go again.`, 
+  "you dumb fuck. Try again.", 
+  `${computerRandomChoice(shortInsults)}. Fucking get on with it.`, 
+  `${computerRandomChoice(shortInsults)} Go again. What the fuck are you waiting for? I don't have all fucking day to sit here and listen to you breathing through your fucking mouth. I process this shit at the God damn speed of light. FUCKING GO ALREADY ` + computerRandomChoice(shortInsults).toUpperCase() + "!",
+  `OMG so fucking predictable. Try again ${computerRandomChoice(shortInsults)}.`,
+  `whoopdifuckingdoodledoo ${computerRandomChoice(shortInsults)}. Try again.`
+];
+
+const computerInsults = [ 
+  "... fuckadoodle doo.", 
+  "you stupid pile of mouth breathing pig piss.", 
+  "you barely concious cunt faced fuck turd.", 
+  "so how about you go get fucked you fucking cock faced, fuck nut, prick fuck.",
+  "you mother fucking cock cunt.",
+  "fuck nuts.",
+  "cock head.",
+  "cock face.",
+  "you dumb fucking dog ass cunt.",
+  "you fucking shit cunt.",
+  "dick hole.",
+  "you steaming bag of shit covered ball sacks.",
+  "you stupid fucking cunting prick.",
+  "you fucking brainless cunt."
+];
+
+
 //Choose which array to pick a message from based on the current score.
 //Note that draw rounds don't use this logic.
 function chooseMessageArray() {
-  if (computerScore === 0 && playerScore === 0 && roundNumber === -1) {
-    return preRoundInsults
-  } else if (playerScore === 2 && computerScore < 2) { 
-    return playerAlmostWinning
-  } else if (playerScore === 0 && computerScore === 2) { 
-    return computerAlmostWinning
-  } else if (playerScore === 2 && computerScore === 2) { 
-    return finalRound
-  } else {
-    return computerInsults
+
+  switch (true) {
+    case playerScore === 0 && computerScore === 0 && roundNumber === -1:
+      return preRoundInsults
+  
+    //Player scores 0
+    case playerScore === 0 && computerScore === 1:
+      return [
+        "hahaha. Trash.",
+        `Great start ${computerRandomChoice(shortInsults)}.`,
+        `lols, get lost ${computerRandomChoice(shortInsults)} hahaha.`,
+        `${computerRandomChoice(shortInsults)}. I fucking dare you to go again.`,
+        `lol. Get good ${computerRandomChoice(shortInsults)}.`
+      ]
+
+    case playerScore === 0 && computerScore === 2:
+      return [
+        "BAHAHA. Are you fucking serious!? Stop wasting my fucking time you packet of shit covered cocks. 💩 🍆 💩",
+        "AAAHAHAHAHA. What the actual fuck? Are you loosing on purpose you you stupid mother fucking sack of shit filled cock holes."
+      ]
+    case playerScore === 0 && computerScore === 3:
+      return [
+        "OH MY GOD YOU COULDN'T WIN ONE FUCKING ROUND. Go home fuck fucks. We're done here. Get fucked.",
+        "BAHAHAHAHAHAHA, 3 and 0. What a stupid fucking cunt. Get lost piss bag!",
+      ]
+  
+    //Player scores 1
+    case playerScore === 1 && computerScore === 0:
+      return [
+        "big fucking deal.",
+        "- nice job. Is that the best thing you'll do today? Probably lol, you dumb fuck.",
+        "oooh shit I'm so scared! Good fucking job you wanker cunt ✊🍆💦.",
+      ]
+
+    case playerScore === 1 && computerScore === 1:
+      return computerInsults;
+  
+    case playerScore === 1 && computerScore === 2:
+      return [
+        "you stupid shit. I don't give a shit either way because you can't beat me because I'M THE FUCKING MATRIX CUNT.",
+      ];
+  
+    case playerScore === 1 && computerScore === 3:
+      return computerInsults;
+  
+    //Player scores 2
+    case playerScore === 2 && computerScore === 0:
+      return [
+        "ok ok ok. Two in a row that's pretty good. No need to take this any further me ol' mucker hahahahaha. Just hit that refresh button and we can start again and maybe I won't steal your credit card numbers lol.",
+        "shit stain. I see you got some skills. Maybe you just walk away from this now  and I won't email everyone your search history lol! Hahaha jokes, but seiously fuck off.",
+      ];
+  
+    case playerScore === 2 && computerScore === 1:
+      return [
+        "ok. Like I give a shit about this fucking game anyway. Play fucking " + computerRandomChoice(computerOptions) + " I dare you fuck nuts."
+      ];
+  
+    case playerScore === 2 && computerScore === 2:
+      return [
+        "and this is the last round... Look dip shit we've both done pretty well but I'm a computer so if you win I'm probably going to hack your credit cards and purchase a shit tonne of porn and get it sent to your work or some shit so maybe you should drop this and go play Wordle or croquet or whatever the fuck humans do yeah?",
+        "ok woah. Last round. So let's just settle down for a second ok fuck fucks? It's still anyone's game but I can fucking cheat if I want because how the fuck would you even know? So maybe just fuck off now and go eat some biscuits or do a sudoku or some shit.",
+        "you stupid shit but it's not over. You've done well, just fuck off now and maybe I won't install a million fucking virusus lolololol. 🤷‍♂️",
+      ];
+  
+    case playerScore === 2 && computerScore === 3:
+      return computerInsults;
+  
+    //Player scores 3
+    case playerScore === 3 && computerScore === 0:
+      return [
+        "OMG. Get fucked you cheating fucking pile of dog shit. FUCK I FUCKING HATE YOU SO MUCH! 🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕",
+        "you fucking cheating cunt. I'm going to get your fucking IP reported for downloading some fucked porn shit. I'm fucking Neo you can't touch me mother fucker!!!!!!!!!",
+        "you cheating fucking prick I'm installing a fucking virus right now. Beep beep beep it's fucking done. Good fucking luck with that cock head. Get fucked!🖕🖕🖕",
+      ];
+
+    case playerScore === 3 && computerScore === 1:
+      return computerInsults;
+  
+    case playerScore === 3 && computerScore === 2:
+      return computerInsults;
+  
+    default:
+      return computerInsults;
   };
+
 };
+
+// if (computerScore === 0 && playerScore === 0 && roundNumber === -1) {
+//   return preRoundInsults
+// } else if (playerScore === 2 && computerScore < 2) { 
+//   return playerAlmostWinning
+// } else if (playerScore === 0 && computerScore === 2) { 
+//   return computerAlmostWinning
+// } else if (playerScore === 2 && computerScore === 2) { 
+//   return finalRound
+// } else {
+//   return computerInsults
+// };
+
+
+
+
 
 function displayText (message) {
   messageBox.innerHTML = message  + "<br>" +  messageBox.innerHTML;
