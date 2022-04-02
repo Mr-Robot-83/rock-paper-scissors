@@ -1,7 +1,14 @@
-//List choices for the computer.
-const messageBox = document.getElementById("comp-message");
-
-const computerOptions = ["rock", "paper", "scissors"];
+//Content arrays
+const preRoundInsults = [
+  "fuck nuts.",
+  "cock head.",
+  "cock face.",
+  "dick teeth.",
+  "fuck sticks.",
+  "piss mouth.",
+  "fart balls.",
+  "fart face."
+];
 
 const shortInsults = [
   "fuck fucks",
@@ -17,66 +24,8 @@ const shortInsults = [
   "you dumb wanker",
 ];
 
-const preRoundInsults = [
-  "fuck nuts.",
-  "cock head.",
-  "cock face.",
-  "dick teeth.",
-  "fuck sticks.",
-  "piss mouth.",
-  "fart balls.",
-  "fart face."
-];
-
-const messagesAtP1vC0 = [
-  "big fucking deal. Go again.",
-  "oooh shit I'm so fucking scared! 😨 Whatever piss off.",
-  "and I don't give two shits.",
-  "LIKE I GIVE A SHIT ABOUT ONE ROUND FUCK OFF!"
-];
-
-const messagesAtP2vC0 = [
-  "let's just chill chill chill. Woah there buddy. What the fuck man you're doing great but maybe give this a rest hey? I've got a bit riding on this game and some programs are gonna be real mad if I don't win so maybe just hit that refresh and we'll forget we ever got to this point yeah? Love you xox.",
-];
-
-const messagesAtPWins = [""
-];
-
-const messagesAtP0vC1 = [""
-];
-
-const messagesAtP0vC2 = [""
-];
-
-const messagesAtCWins = [""
-];
-
-const messagesAtP2vC1 = [""
-];
-
-const messagesAtP1vC2 = [""
-];
-
-const messagesAtP2vC2 = [""
-];
-
-const computerAlmostWinning = [
-  "hahahahaha. What the actual fuck. You are trash. 2 v 0 lol. Fuck you.",
-  "I just need one more bitch. You are fucking trash lol."
-];
-
-const playerAlmostWinning = [
-  "... ok so you're pretty close. How about you chill and we be friends and forget this whole thing?",
-  "... oh shit big fucking guy over here. Whatever get fucked."
-];
-
-const finalRound = [
-  "so now we're even and it's the last round. I'm probably going to cheat so you should maybe just fuck off now?",
-  "and this is the last round. Look we both did pretty well but I'm a computer so if you win I'm probably going to hack your credit cards and purchase a shit tonne of porn and get it sent to your work or some shit so maybe you should drop this and go play Wordle or croquet or whatever the fuck humans do before shit gets serious."
-];
-
 const computerWinMessages = [ 
-  "I win fuck face. Why don't you go try to eat a pile of steaming horse shit. 💩 💩 💩 💩 💩", 
+  "I win fuck face. Go eat a pile of steaming horse shit. 💩 💩 💩 💩 💩", 
   "💩 💩 Game over, I win dick head! 💩 💩",
   "I win you stupid fuck 💩",
   "🖕 I win. Eat shit. 💩",
@@ -89,11 +38,16 @@ const computerWinMessages = [
   "I win, fuck off.🖕 💩 🖕 💩 "
 ];
 
+//Set a variable for the message box on the page
+const messageBox = document.getElementById("comp-message");
+
+//The computer's options 
+const computerOptions = ["rock", "paper", "scissors"];
+
 //Set round number and scores. -1 is there to trigger a reset (pre-round).
 let computerScore = 0;
 let playerScore = 0;
 let roundNumber = -1;
-
 
 //Ask the computer to make a selection at random from the given coices.
 function computerRandomChoice (array) {
@@ -104,7 +58,7 @@ function computerRandomChoice (array) {
 //Game logic. Takes in player and computer selection, prints results and updates scores.
 function playRound(playerSelection, computerSelection) {
   let play = playerSelection.toLowerCase();
-  const playedMessage = `You played ${playerSelection} and I played ${computerSelection}.`;
+  const playedMessage = `You played ${playerSelection}, I played ${computerSelection}.`;
   if (play === computerSelection) {
     roundNumber++;
     messageBox.innerHTML = "<br>" + messageBox.innerHTML;
@@ -181,7 +135,7 @@ const drawMessages = [
   `${computerRandomChoice(shortInsults)}. Go again.`, 
   "you dumb fuck. Try again.", 
   `${computerRandomChoice(shortInsults)}. Fucking get on with it.`, 
-  `${computerRandomChoice(shortInsults)} Go again. What the fuck are you waiting for? I don't have all fucking day to sit here and listen to you breathing through your fucking mouth. I process this shit at the God damn speed of light. FUCKING GO ALREADY ` + computerRandomChoice(shortInsults).toUpperCase() + "!",
+  `${computerRandomChoice(shortInsults)} Go again. What the fuck are you waiting for? I don't have all fucking day to sit here and listen to you breathing through your fucking mouth. I process this shit at the God damn speed of light. FUCKING GO ALREADY! JESUS!`,
   `OMG so fucking predictable. Try again ${computerRandomChoice(shortInsults)}.`,
   `whoopdifuckingdoodledoo ${computerRandomChoice(shortInsults)}. Try again.`
 ];
@@ -216,7 +170,7 @@ function chooseMessageArray() {
     case playerScore === 0 && computerScore === 1:
       return [
         "hahaha. Trash.",
-        `Great start ${computerRandomChoice(shortInsults)}.`,
+        `lol, great start ${computerRandomChoice(shortInsults)}.`,
         `lols, get lost ${computerRandomChoice(shortInsults)} hahaha.`,
         `${computerRandomChoice(shortInsults)}. I fucking dare you to go again.`,
         `lol. Get good ${computerRandomChoice(shortInsults)}.`
@@ -291,23 +245,7 @@ function chooseMessageArray() {
     default:
       return computerInsults;
   };
-
 };
-
-// if (computerScore === 0 && playerScore === 0 && roundNumber === -1) {
-//   return preRoundInsults
-// } else if (playerScore === 2 && computerScore < 2) { 
-//   return playerAlmostWinning
-// } else if (playerScore === 0 && computerScore === 2) { 
-//   return computerAlmostWinning
-// } else if (playerScore === 2 && computerScore === 2) { 
-//   return finalRound
-// } else {
-//   return computerInsults
-// };
-
-
-
 
 
 function displayText (message) {
