@@ -38,6 +38,74 @@ const computerWinMessages = [
   "I win, fuck off.🖕 💩 🖕 💩 "
 ];
 
+
+const drawMessages = [
+  `${computerRandomChoice(shortInsults)}. Try again.`, 
+  `${computerRandomChoice(shortInsults)}. Go again.`, 
+  "you dumb fuck. Try again.", 
+  `${computerRandomChoice(shortInsults)}. Fucking get on with it.`, 
+  `${computerRandomChoice(shortInsults)} Go again. What the fuck are you waiting for? I don't have all fucking day to sit here and listen to you breathing through your fucking mouth. I process this shit at the God damn speed of light. FUCKING GO ALREADY! JESUS!`,
+  `OMG so fucking predictable. Try again ${computerRandomChoice(shortInsults)}.`,
+  `whoopdifuckingdoodledoo ${computerRandomChoice(shortInsults)}. Try again.`
+];
+
+const computerInsults = [ 
+  "... fuckadoodle doo.", 
+  "you stupid pile of mouth breathing pig piss.", 
+  "you barely concious cunt faced fuck turd.", 
+  "so how about you go get fucked you fucking cock faced, fuck nut, prick fuck.",
+  "you mother fucking cock cunt.",
+  "fuck nuts.",
+  "cock head.",
+  "cock face.",
+  "you dumb fucking dog ass cunt.",
+  "you fucking shit cunt.",
+  "dick hole.",
+  "you steaming bag of shit covered ball sacks.",
+  "you stupid fucking cunting prick.",
+  "you fucking brainless cunt."
+];
+
+const player0Comp1 = [
+  "hahaha. Trash.",
+  `lol, great start ${computerRandomChoice(shortInsults)}.`,
+  `lols, get lost ${computerRandomChoice(shortInsults)} hahaha.`,
+  `${computerRandomChoice(shortInsults)}. I fucking dare you to go again.`,
+  `lol. Get good ${computerRandomChoice(shortInsults)}.`
+];
+
+const player0Comp2 = [
+  "BAHAHA. Are you fucking serious!? Stop wasting my fucking time you packet of shit covered cocks. 💩 🍆 💩",
+  "AAAHAHAHAHA. What the actual fuck? Are you loosing on purpose you you stupid mother fucking sack of shit filled cock holes."
+]
+
+const player0Comp3 = [
+  "OH MY GOD YOU COULDN'T WIN ONE FUCKING ROUND. Go home fuck fucks. We're done here. Get fucked.",
+  "BAHAHAHAHAHAHA, 3 and 0. What a stupid fucking cunt. Get lost piss bag!",
+]
+
+const player1Comp0 = [
+  "",
+];
+
+const player2Comp0 = [
+  "",
+];
+
+const player3Comp0 = [
+  "",
+];
+
+const playerWins = [
+  "",
+];
+
+const midGame = [
+  "",
+];
+
+
+
 //Set a variable for the message box on the page
 const messageBox = document.getElementById("comp-message");
 
@@ -130,32 +198,6 @@ function gameOver () {
   playScissors.innerHTML = "🖕";
 };
 
-const drawMessages = [
-  `${computerRandomChoice(shortInsults)}. Try again.`, 
-  `${computerRandomChoice(shortInsults)}. Go again.`, 
-  "you dumb fuck. Try again.", 
-  `${computerRandomChoice(shortInsults)}. Fucking get on with it.`, 
-  `${computerRandomChoice(shortInsults)} Go again. What the fuck are you waiting for? I don't have all fucking day to sit here and listen to you breathing through your fucking mouth. I process this shit at the God damn speed of light. FUCKING GO ALREADY! JESUS!`,
-  `OMG so fucking predictable. Try again ${computerRandomChoice(shortInsults)}.`,
-  `whoopdifuckingdoodledoo ${computerRandomChoice(shortInsults)}. Try again.`
-];
-
-const computerInsults = [ 
-  "... fuckadoodle doo.", 
-  "you stupid pile of mouth breathing pig piss.", 
-  "you barely concious cunt faced fuck turd.", 
-  "so how about you go get fucked you fucking cock faced, fuck nut, prick fuck.",
-  "you mother fucking cock cunt.",
-  "fuck nuts.",
-  "cock head.",
-  "cock face.",
-  "you dumb fucking dog ass cunt.",
-  "you fucking shit cunt.",
-  "dick hole.",
-  "you steaming bag of shit covered ball sacks.",
-  "you stupid fucking cunting prick.",
-  "you fucking brainless cunt."
-];
 
 
 //Choose which array to pick a message from based on the current score.
@@ -168,24 +210,11 @@ function chooseMessageArray() {
   
     //Player scores 0
     case playerScore === 0 && computerScore === 1:
-      return [
-        "hahaha. Trash.",
-        `lol, great start ${computerRandomChoice(shortInsults)}.`,
-        `lols, get lost ${computerRandomChoice(shortInsults)} hahaha.`,
-        `${computerRandomChoice(shortInsults)}. I fucking dare you to go again.`,
-        `lol. Get good ${computerRandomChoice(shortInsults)}.`
-      ]
-
+      return player0Comp1;
     case playerScore === 0 && computerScore === 2:
-      return [
-        "BAHAHA. Are you fucking serious!? Stop wasting my fucking time you packet of shit covered cocks. 💩 🍆 💩",
-        "AAAHAHAHAHA. What the actual fuck? Are you loosing on purpose you you stupid mother fucking sack of shit filled cock holes."
-      ]
+      return player0Comp2;
     case playerScore === 0 && computerScore === 3:
-      return [
-        "OH MY GOD YOU COULDN'T WIN ONE FUCKING ROUND. Go home fuck fucks. We're done here. Get fucked.",
-        "BAHAHAHAHAHAHA, 3 and 0. What a stupid fucking cunt. Get lost piss bag!",
-      ]
+      return player0Comp3;
   
     //Player scores 1
     case playerScore === 1 && computerScore === 0:
@@ -249,7 +278,11 @@ function chooseMessageArray() {
 
 
 function displayText (message) {
-  messageBox.innerHTML = message  + "<br>" +  messageBox.innerHTML;
+  const newNode = document.createElement("p");
+  const textNode = document.createTextNode(message);
+  newNode.appendChild(textNode);
+  messageBox.insertBefore(newNode, messageBox.children[0]);
+  newNode.classList.add("animation");
 };
 
 function displayRound (roundNumber, playerSelection, computerSelection) {

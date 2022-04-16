@@ -16,6 +16,20 @@ body {
   line-height: 26px;
 }
 
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+p.animation {
+    transition: all 0.5s;
+ }
+
 .content {
   width: 100%;
   margin: 0 auto;
